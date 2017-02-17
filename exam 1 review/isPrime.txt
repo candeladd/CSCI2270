@@ -1,0 +1,22 @@
+Write the function definition for the function isPrime which takes an integer argument. It identifies whether the parameter is prime or not. It should print "Yes" if the number is prime, "No" otherwise.
+void isPrime(int number);
+
+using namespace std;
+
+void isPrime(int number)
+{
+    for (int i=2; i<number; i++) 
+    { 
+        if (number % i == 0) 
+            {
+            cout << "No" << endl;
+            return;
+            }
+            
+    }
+    cout << "Yes" << endl;
+    return;
+    
+    
+ }
+ 

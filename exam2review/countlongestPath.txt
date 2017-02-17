@@ -1,0 +1,11 @@
+
+int MovieTree::countLongestPath(MovieNode *x){
+    if (x==nil)
+    {
+        return 0;
+    }
+    if(x != nil)
+    {
+        return max(countLongestPath(x->leftChild),countLongestPath(x->rightChild))+1;
+    }
+}

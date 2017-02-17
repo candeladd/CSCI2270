@@ -1,0 +1,21 @@
+Write a C++ function to remove an element from an array. The function takes three argument - the input array, size of array, value to be removed from the array. It should return the new array.
+
+int * arrayShift(int arr[],int length,int value);
+For example:
+Test	Result
+//int inputarray[] = {10,20,30,40,50};
+//int length = 5;
+//int value = 30;	10 20 40 50 
+
+
+-Answer-
+int* arrayShift(int arr[], int length, int value){
+    for (int i=0; i < length;i++) {
+        if(arr[i] == value){
+            for (int j=i; j < length;j++){
+                arr[j]=arr[j+1];
+            }
+        }
+    }
+    return arr;
+}

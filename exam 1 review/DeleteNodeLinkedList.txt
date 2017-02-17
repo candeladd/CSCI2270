@@ -1,0 +1,50 @@
+Write a C++ function to delete nodes in a linked list. The function takes two arguments - the head of the linked list and the value to be deleted. It should delete all nodes which contain the value to be deleted. It should return the head of the linked list.
+
+node * DeleteNode(node *head, int value);
+
+The linked list structure:
+struct node
+{
+    int value;
+    node *next;
+    node *prev;
+};
+
+For example:
+Test	Result
+//-1 <-> 0 <-> 99 <-> 0
+//delete 0	-1 <-> 99
+
+
+-Answer-
+node * DeleteNode(node *head, int value){
+    node* temp;
+    node* before;
+    node* after;
+    temp=head;
+    while(temp!=NULL){
+   
+      
+        if(temp->value==value){
+            if(temp->prev == NULL){
+                head=temp->next;
+                temp->next->prev = NULL;
+            }
+            else if(temp->prev!=NULL){
+            
+                before = temp->prev;
+                if(temp->next==NULL){
+                    after = NULL;
+                    before->next= after;
+                }
+                else if(temp->next!=NULL){
+                    after= temp->next;
+                    before->next= after;
+                    after->prev = before;
+                }
+            }
+        }
+          temp= temp->next;
+    }
+    return head;
+}

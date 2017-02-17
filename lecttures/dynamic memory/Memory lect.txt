@@ -1,0 +1,16 @@
+dynamic memory allocation
+    *read txt from file, you don't know the size of txt
+
+    graphs- free up memory for new connections/ allocations
+        vectors can do allot of this work under the surface
+        trapped on a desert island how would you do this w/o vectors
+    MEMORY backGround
+        stack - local variables, memory management done for you
+        heap -  large pool of free memory (much larger than the stack)
+                this is where dynamically allocated variables go.
+                *memory management is done by you(in C++)
+
+
+
+11 13/32
+-87

@@ -1,0 +1,46 @@
+void MovieTree::rbDelete(MovieNode * z){
+
+    MovieNode *x;
+    MovieNode *y = z;
+    bool yoriginal= y->isRed;
+    if (z==nil)
+    {
+        return;
+    }
+    // returns if the movie was not found
+
+    if(z->leftChild == nil)
+    {
+        x = z->rightChild;
+        rbTransplant(z,z->rightChild);
+    }
+    else if(z->rightChild == nil)
+    {
+        x = z->leftChild;
+        rbTransplant(z,z->leftChild);
+    }
+    else
+    {
+        y = minimumNode(z->rightChild);
+        yoriginal = y->isRed;
+        x= y->rightChild;
+        if(y->parent == z)
+        {
+            x->parent = y;
+        }
+        else
+        {
+            rbTransplant(y,y->rightChild);
+            y->rightChild = z->rightChild;
+            y->rightChild->parent = y;
+        }
+        rbTransplant(z,y);
+        y->leftChild = z->leftChild;
+        y->leftChild->parent = y;
+        y->isRed = z->isRed;
+    }
+        if(yoriginal == false)
+    {
+        rbDeleteFixup(x);
+    }
+}

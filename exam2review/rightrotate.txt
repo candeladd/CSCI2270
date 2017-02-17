@@ -1,0 +1,27 @@
+void MovieTree::rightRotate(MovieNode *node)
+{
+    MovieNode *x;
+    x = node->leftChild;
+    node->leftChild = x->rightChild;
+    if(x->rightChild != nil)
+    {
+    x->rightChild->parent = node;
+    }
+    x->parent = node->parent;
+    if(node->parent == nil)
+    {
+    root = x;
+    }
+
+    if (node == (node->parent)->leftChild)
+    {
+        node->parent->leftChild = x;
+    }
+    if (node == (node->parent)->rightChild)
+    {
+        node->parent->rightChild = x;
+    }
+
+    x->rightChild = node;
+    node->parent = x;
+}

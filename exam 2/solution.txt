@@ -1,0 +1,203 @@
+TreeNode* minimumNode(TreeNode *x){
+    while (x->right != NULL)
+    {
+        x = x->right;
+    }
+    return x;
+}
+
+TreeNode *searchTree(TreeNode *node, int key)
+{
+
+    TreeNode* x = node;
+
+
+
+    if(x==NULL){
+        return x;
+    }
+    else{
+
+        if(x->key == key){
+
+                return x;
+        }
+        else if(key>x->key){
+
+             return searchTree(x->left, key );
+        }
+        else{
+            return searchTree(x->left, key);
+        }
+
+    }
+ }
+
+void deleteAndReplaceRight(TreeNode *node, int key)
+{
+
+    node* x = searchTree(node, value);
+        TreeNode* y;
+        TreeNode* z;
+        TreeNode* w;
+        TreeNode* k;
+        TreeNode* n;
+        if (x==NULL){
+            return;
+        }
+        if ((x->right != NULL)&&(x->left == NULL)){
+            y = x->right;
+            y->parent = x->parent;
+            z =x->parent;
+            if (z->key < x->key){
+                z->right = y;
+            }
+            else{
+                z->left = y;
+            }
+            delete x;
+
+        }
+        else if (x->right == NULL&&x->left != NULL){
+            y=x->left;
+             y->parent = x->parent;
+            z=x->parent;
+            if (z->key < x->key){
+                z->right = y;
+            }
+            else{
+                z->left = y;
+            }
+            delete x;
+        }
+        else if (x->left ==NULL&&x->right == NULL){
+            z=x->parent;
+            if (z->key < x->key){
+                z->right = NULL;
+            }
+            else{
+                z->left = NULL;
+            }
+            delete x;
+        }
+        else if (x->left != NULL && x->left!= NULL){
+            y = x->right;
+            y->parent = x->parent;
+            z =x->parent;
+            if (z->key < x->key){
+                z->right = y;
+            }
+            else{
+                z->left = y;
+            }
+            k=x->left;
+            n= y->left;
+            y->left=k;
+            k->parent = y;
+            w= minimumNode(k);
+            w->right = n;
+            delete x;
+        }
+
+
+}
+
+TreeNode* minimumNode(TreeNode *x){
+    while (x->left != NULL)
+    {
+        x = x->left;
+    }
+    return x;
+}
+
+TreeNode *searchTree(TreeNode *node, int key)
+{
+
+    TreeNode* x = node;
+
+
+
+    if(x==NULL){
+        return x;
+    }
+    else{
+
+        if(x->key == key){
+
+                return x;
+        }
+        else if(key>x->key){
+
+             return searchTree(x->left, key );
+        }
+        else{
+            return searchTree(x->left, key);
+        }
+
+    }
+ }
+
+void deleteAndReplaceRight(TreeNode *node, int key)
+{
+
+    TreeNode* x = searchTree(node, key);
+        TreeNode* y;
+        TreeNode* z;
+        TreeNode* w;
+        if (x==NULL){
+            return;
+        }
+        if ((x->right != NULL)&&(x->left == NULL)){
+            y = x->right;
+            y->parent = x->parent;
+            z =x->parent;
+            if (z->key < x->key){
+                z->right = y;
+            }
+            else{
+                z->left = y;
+            }
+            delete x;
+
+        }
+        else if (x->right == NULL&&x->left != NULL){
+            y=x->left;
+             y->parent = x->parent;
+            z=x->parent;
+            if (z->key < x->key){
+                z->right = y;
+            }
+            else{
+                z->left = y;
+            }
+            delete x;
+        }
+        else if (x->left ==NULL&&x->right == NULL){
+            z=x->parent;
+            if (z->key < x->key){
+                z->right = NULL;
+            }
+            else{
+                z->left = NULL;
+            }
+            delete x;
+        }
+        else if (x->left != NULL && x->left!= NULL){
+            y = x->right;
+            y->parent = x->parent;
+            z =x->parent;
+            if (z->key < x->key){
+                z->right = y;
+            }
+            else{
+                z->left = y;
+            }
+
+            w= minimumNode(y);
+            w->left = x->left;
+            delete x;
+        }
+
+
+}
+

@@ -1,0 +1,24 @@
+bool hasPathSum(TreeNode *node, int sum){
+    if (node == NULL)
+    {
+        return (sum == 0);   
+    }
+    else{
+        
+        int subsum= sum-node->key;
+        bool path = false;
+        if (subsum == 0 && node->left == NULL && node->right ==NULL)
+        {
+            return true;
+        }
+        if (node->left !=NULL)
+        {
+           path = path || hasPathSum(node->left, subsum);
+        }
+        if (node->right != NULL)
+        {
+            path = path || hasPathSum(node->right, subsum);
+        }
+        return path;
+    }
+}

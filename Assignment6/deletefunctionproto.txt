@@ -1,0 +1,40 @@
+
+void MovieTree::deleteMovieNode(std::string title){
+    MovieNode* x = searchMovieTree(root, title);
+    if ((x!=NULL)&&(x->rightChild==NULL)&&(x->leftChild==NULL)){
+       delete x;
+    }
+    else if ((x!=NULL)&&(x->leftChild!=NULL)&&(x->rightChild==NULL)){
+        if (strcmp(x->title.c_str(),x->parent->title.c_str())>0){
+            x->parent->rightChild = x->leftChild;
+            x->leftChild->parent = x->parent;
+        }
+        else {
+            x->parent->leftChild = x->leftChild;
+            x->leftChild->parent = x->parent;
+            delete x;
+        }
+    }
+    else if((x!=NULL)&&(x->leftChild!=NULL)&&(x->rightChild!=NULL)){
+        if (strcmp(x->title.c_str(),x->parent->title.c_str())>0){
+            MovieNode* temp2 =x;
+            temp2->rightChild;
+            while(temp2->leftChild !=NULL){
+                temp2=temp2->leftChild;
+            }
+            x=temp2;
+            delete temp2;
+        }
+        else{
+             MovieNode* temp2 =x;
+            temp2->rightChild;
+            while(temp2->leftChild !=NULL){
+                temp2=temp2->leftChild;
+            }
+            x=temp2;
+            delete temp2;
+
+
+        }
+    }
+}

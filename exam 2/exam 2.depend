@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1427680712 source:/home/user/Dropbox/2270/exam 2/main.cpp
+	<iostream>
+	"TreeNode.h"
+
+1427735811 /home/user/Dropbox/2270/exam 2/TreeNode.h
+
+1427738971 source:/home/user/Dropbox/2270/exam 2/TreeNode.cpp
+	"TreeNode.h"
+	<iostream>
+

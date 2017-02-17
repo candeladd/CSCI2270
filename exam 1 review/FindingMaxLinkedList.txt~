@@ -1,0 +1,28 @@
+Write a C++ function to find the maximum value in a linked list. The function takes one argument - the head of the linked list. The function should traverse through the linked list, find the maximum value and then return the maximum value.
+
+int LinkedListFindMax(node *head);
+
+The linked list structure:
+struct node
+{
+    int value;
+    node *next;
+};
+
+For example:
+Test						Result
+//9  ->  3  -> 100  -> 1000  -> -3  ->  9876	9876
+
+
+int LinkedListFindMax(node *head){
+    int max = head->value;
+    node *x = head->next;
+    while (x != NULL){
+        if (x->value > max)
+        max = x->value;
+        x=x->next;
+    }
+    return max;
+}
+
+

@@ -1,0 +1,19 @@
+void HashTable::findMisplacedMovies()
+{
+	for (int i=0; i<tableSize;i++)
+	{
+		if(hashTable[i] != NULL)
+		{
+			Movie *temp = hashTable[i];
+			while(temp!=NULL)
+			{
+				int index = hashSum(temp->tile,tableSize);
+				if (index!=i)
+				{
+					cout<<temp->title<<":"<<i<<":"<<index<<endl;
+				}				
+				temp = temp->next;
+			}
+		}
+	}
+}

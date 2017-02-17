@@ -1,0 +1,41 @@
+rb_insert( Tree T, node x ) {
+1.    /* Insert in the tree in the usual way */
+2.    tree_insert( T, x );
+3.    /*Assume node exists in tree T called nil. It is empty node maintained for red-black structure.*/
+4.    x->left = T->nil; 
+5.    x->right = T->nil;
+6.    /* Now restore the red-black property */
+7.    x->color = red;
+8.    while ( (x != T->root) && (x->parent->color == red) ) {
+9.       if ( x->parent == x->parent->parent->left ) {
+10.           /* If x's parent is a left, y is x's right 'uncle' */
+11.           y = x->parent->parent->right;
+12.           if ( y->color == red ) {
+13.              /* case 1 - change the colors */
+14.              x->parent->color = black;
+15.              y->color = black;
+16.              x->parent->parent->color = red;
+17.              /* Move x up the tree */
+18.              x = x->parent->parent;
+19.          }
+20.          else {
+21.              /* y is a black node */
+22.              if ( x == x->parent->right ) {
+23.                  /* and x is to the right */ 
+24.                  /* case 2 - move x up and rotate */
+25.                  x = x->parent;
+26.                  left_rotate( T, x );
+27.              }
+28.              /* case 3 */
+29.              x->parent->color = black;
+30.              x->parent->parent->color = red;
+31.              right_rotate( T, x->parent->parent );
+32.          }
+33.      }
+34.      else {
+35.          /* repeat the "if" part with right and left exchanged */
+36.      }
+37.  }
+38.  /* Color the root black */
+39.  T->root->color = black;
+}

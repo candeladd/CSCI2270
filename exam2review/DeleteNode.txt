@@ -1,0 +1,109 @@
+/*  // call to search function to find the node to be deleted
+    MovieNode *x, *xsucc ;
+
+
+
+
+
+        x = searchMovieTree(root, title, jarr);
+
+
+    if (x == nil){
+            return;
+    }
+
+    // if the node to be deleted has two children
+    else if ( (x -> leftChild != nil) && (x -> rightChild != nil) )
+        {
+            xsucc = x -> rightChild ;
+
+        while ( xsucc -> leftChild != nil )
+        {
+            xsucc = xsucc -> leftChild ;
+        }
+         if ( (xsucc->rightChild != nil)&& (xsucc->parent->rightChild == xsucc)){
+            x->quantity = xsucc->quantity;
+            x->ranking = xsucc->ranking;
+            x->title = xsucc->title;
+            x->year = xsucc->year;
+
+            xsucc->parent->rightChild = xsucc->rightChild;
+            xsucc->rightChild->parent = xsucc->parent;
+        }
+        else if((xsucc->rightChild == nil) && (xsucc->parent->rightChild == xsucc)){
+            x->quantity = xsucc->quantity;
+            x->ranking = xsucc->ranking;
+            x->title = xsucc->title;
+            x->year = xsucc->year;
+
+            x->rightChild =nil;
+
+        }
+        else if((xsucc->rightChild != nil)&&(xsucc->parent->leftChild == xsucc))
+        {
+            x->quantity = xsucc->quantity;
+            x->ranking = xsucc->ranking;
+            x->title = xsucc->title;
+            x->year = xsucc->year;
+
+            xsucc->parent->leftChild = xsucc->rightChild;
+            xsucc->rightChild->parent = xsucc->parent;
+
+        }
+        else {
+            x->quantity = xsucc->quantity;
+            x->ranking = xsucc->ranking;
+            x->title = xsucc->title;
+            x->year = xsucc->year;
+
+            xsucc->parent->leftChild = nil;
+
+        }
+        delete xsucc;
+    }
+
+    // if the node to be deleted has no child
+    else if ( x -> leftChild == nil && x -> rightChild == nil )
+        {
+        if (strcmp(x->title.c_str(),x->parent->title.c_str())>0){
+            x->parent->rightChild = nil;
+        }
+        else {
+            x->parent->leftChild = nil;
+
+
+        }
+
+            delete x;
+        }
+
+    // if the node to be deleted has only rightchild
+    else if ( x -> leftChild == nil && x -> rightChild != nil )
+        {
+
+            if (strcmp(x->title.c_str(),x->parent->title.c_str())>0){
+                x->parent->rightChild = x->rightChild;
+                x->rightChild->parent = x->parent;
+            }
+            else {
+                x->parent->leftChild = x->rightChild;
+                x->rightChild->parent = x->parent;
+
+            }
+            delete x;
+        }
+
+    // if the node to be deleted has only left child
+    else if ( x -> leftChild != nil && x -> rightChild == nil )
+    {
+        if (strcmp(x->title.c_str(),x->parent->title.c_str())>0){
+            x->parent->rightChild = x->leftChild;
+            x->leftChild->parent = x->parent;
+        }
+        else {
+            x->parent->leftChild = x->leftChild;
+            x->leftChild->parent = x->parent;
+
+        }
+        delete x;
+    }*/

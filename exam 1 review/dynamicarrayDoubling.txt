@@ -1,0 +1,25 @@
+Write a C++ function to double the size of an array an arbitrary number of times. The function takes three arguments - the initial 1D array, its size, and the number of times to double it. The function should dynamically create the new array to be 2x the size of the array argument, copy the contents into the new array, and for the second half of the array, create new values by doing 2*the values in the first half of the array, then delete the original array. Repeat this process for the specified number of times, then return the new array.
+
+int *ArrayDynamicAllocation(int array[], int size, int number);
+For example:
+Test	Result
+int arr[2] = {0,1};
+array_size = 2;
+number = 3;
+
+int *ArrayDynamicAllocation(int array[], int size, int number)
+{
+    for (int i=0; i < number; i++)
+    {
+        int *a2= new int[size*2];
+        for (int j=0; j < size; j++)
+        {
+            a2[j] = array[j];
+            a2[size + j]= array[j] * 2;
+        }
+        delete[] array;
+        size = size*2;
+        array=a2;
+    }
+    return array;
+}

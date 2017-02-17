@@ -1,0 +1,19 @@
+bool isBSTHelper(TreeNode *node, int min, int max) {
+
+    if (node == NULL) return true;
+
+    if (node->key < min || node->key > max) return false;
+    
+    if (isBSTHelper(node->right, node->key+1, max) == true && isBSTHelper(node->left, min, node->key-1) == true)
+
+        return true;
+
+    else return false;
+
+}
+
+bool isBST(TreeNode *node) {
+
+    return isBSTHelper(node, -9999, 9999);
+
+}

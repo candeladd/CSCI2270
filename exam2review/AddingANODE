@@ -1,0 +1,45 @@
+
+    MovieNode* x = root;
+    MovieNode* P = nil;
+
+    while (x != nil){
+       P=x;
+
+        json_object *arrtitle = json_object_new_string(x->title.c_str());
+
+        json_object_array_add(jarr, arrtitle);
+
+       if (strcmp(title.c_str(),x->title.c_str()) >=0){
+// go right since the first being greater than the second means that the first has a hights ascii value as in lower further in the alphabet
+            x=x->rightChild;
+        }
+        else{// got left
+            x=x->leftChild;
+        }
+
+    }
+
+
+    x= new MovieNode;
+    x->quantity = quantity;
+    x->ranking = ranking;
+    x->title = title;
+    x->year = releaseYear;
+    x->isRed = true;
+
+    x->parent = P;
+    x->leftChild =nil;
+    x->rightChild =nil;
+
+
+    //currentMovie->parent = P;
+
+    if (P==nil){
+        root = x;
+    }
+    else if (strcmp (x->title.c_str(),P->title.c_str()) >= 0){
+        P->rightChild = x;
+    }
+    else {
+        P->leftChild = x;
+    }

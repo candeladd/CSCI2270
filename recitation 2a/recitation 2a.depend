@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1422986020 source:/home/user/Dropbox/2270/terrible_dynamic_size_array_unsorted.cpp
+	"terrible_dynamic_size_array_unsorted.h"
+
+1422981101 /home/user/Dropbox/2270/terrible_dynamic_size_array_unsorted.h
+	<iostream>
+
+1422981110 source:/home/user/Dropbox/2270/test_int_array.cpp
+	"terrible_dynamic_size_array_unsorted.h"
+

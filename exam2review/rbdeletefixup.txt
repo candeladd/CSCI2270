@@ -1,0 +1,72 @@
+void MovieTree::rbDeleteFixup(MovieNode * x){
+
+    while (x != root && x->isRed == false)
+    {
+        cout << "hello0" << endl;
+        if(x == x->parent-> leftChild)
+        {
+            cout << "hello1" << endl;
+            MovieNode *w = x-> parent -> rightChild;
+            if(w -> isRed == true)
+            {
+                w -> isRed = false;
+                x -> parent -> isRed = true;
+                leftRotate(x->parent);
+                w = x->parent-> rightChild;
+            }
+            if((w->leftChild-> isRed == false) &&(w->rightChild-> isRed ==false))
+            {
+                w->isRed = true;
+                x = x->parent;
+            }
+            else
+            {
+               if(w->rightChild->isRed ==false)
+               {
+                   w->leftChild->isRed = false;
+                   w->isRed = true;
+                   rightRotate(w);
+                   w= x->parent->rightChild;
+               }
+               w->isRed = x->parent->isRed;
+               x->parent->isRed = false;
+               w->rightChild->isRed = false;
+               leftRotate(x->parent);
+               x=root;
+            }
+        }
+    else
+    {
+        cout << "hello2" << endl;
+        MovieNode *w = x-> parent -> leftChild;
+        if(w -> isRed == true)
+        {
+            w -> isRed = false;
+            x-> parent -> isRed = true;
+            rightRotate(x->parent);
+            w = x->parent-> leftChild;
+        }
+        if((w->rightChild-> isRed == false) &&(w->leftChild-> isRed ==false))
+        {
+            w->isRed = true;
+            x= x->parent;
+        }
+        else
+        {
+            if(w->leftChild->isRed ==false)
+            {
+                w->rightChild->isRed = false;
+                w->isRed = true;
+                leftRotate(w);
+                w= x->parent->leftChild;
+            }
+            w->isRed = x->parent->isRed;
+            x->parent->isRed = false;
+            w->leftChild->isRed = false;
+            rightRotate(x->parent);
+            x=root;
+        }
+    }
+    }
+  x->isRed = false;
+}

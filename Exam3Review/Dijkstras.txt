@@ -1,0 +1,60 @@
+void Graph::Dijkstra(string starting, string destination) {
+
+        vector<vertex*> solved;
+    vertex *start, *dest;
+    for(int i=0; i<vertices.size();i++) {
+                vertices[i].visited = false;
+                vertices[i].previous = NULL;
+                vertices[i].distance = INT_MAX;
+        if (starting == vertices[i].name) {
+            start = &vertices[i];
+        }
+                if (destination == vertices[i].name) {
+            dest = &vertices[i];
+        }
+
+
+    }
+    start->visited = true;
+        start->distance = 0;
+    solved.push_back(start);
+
+    while (!dest->visited) {
+                int minDistance = INT_MAX;
+                vertex *minVertex, *prevVertex;
+        for(int i = 0; i<solved.size(); i++)
+                {
+                        vertex *u = solved[i];
+                        for(int j=0; j<u->adj.size(); j++) {
+                                if (!u->adj[j].v->visited) {
+                                        int distance = u->distance + u->adj[j].weight;
+                                        if(minDistance > distance )
+                                        {
+                                                minDistance = distance;
+                                                minVertex = u->adj[j].v;
+                                                prevVertex = u;
+                                        }
+                                }
+                        }
+                }
+                solved.push_back(minVertex);
+                minVertex->distance = minDistance;
+                minVertex->previous = prevVertex;
+                minVertex->visited = true;
+        }
+        vector <string> path;
+        vertex *temp = dest;
+        cout<<"Shortest Path"<<endl;
+        while(temp!= NULL)
+        {
+                path.push_back(temp->name);
+                temp = temp->previous;
+        }
+        for(int i = path.size() - 1; i>=0; i--)
+        {
+                cout<<path[i];
+                if(i!=0)
+                cout<<" - ";
+        }
+        cout<<endl<<"Minimum Distance: "<<dest->distance<<endl;
+}

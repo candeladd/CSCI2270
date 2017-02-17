@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1424841978 source:/home/user/Dropbox/2270/HomeWork5/Assignment5.cpp
+	<iostream>
+	<fstream>
+	<string>
+	"MovieTree.h"
+
+1424827642 /home/user/Dropbox/2270/HomeWork5/MovieTree.h
+
+1424843981 source:/home/user/Dropbox/2270/HomeWork5/MovieTree.cpp
+	<iostream>
+	<string.h>
+	"MovieTree.h"
+

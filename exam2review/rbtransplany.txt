@@ -1,0 +1,15 @@
+void MovieTree::rbTransplant(MovieNode * u, MovieNode * v){
+    if (u->parent == nil)
+    {
+         root = v;
+    }
+    else if (u == u->parent->leftChild)
+    {
+         u->parent->leftChild = v;
+    }
+    else
+    {
+        u->parent->rightChild = v;
+    }
+    v->parent = u->parent;
+}

@@ -1,0 +1,20 @@
+void doubleTree(TreeNode *node)
+{
+    TreeNode* x =node;
+    TreeNode* y=new TreeNode();
+    if (x->left != NULL)
+    {
+      
+        doubleTree(x->left);
+    }
+    if (x->right != NULL)
+    {
+     
+        doubleTree(x->right);
+    }
+    
+    y->key=x->key;
+    y->left=x->left;
+    x->left =y;
+  
+}

@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1425513500 source:/home/user/Dropbox/2270/exam1corrections/main.cpp
+	<iostream>
+	"Queue.h"
+	<string>
+
+1425349203 /home/user/Dropbox/2270/exam1corrections/Queue.h
+
+1425513937 source:/home/user/Dropbox/2270/exam1corrections/Queue.cpp
+	"Queue.h"
+	<iostream>
+

@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1424282690 source:/home/user/Dropbox/2270/Assignment4/Assignment4.cpp
+	<iostream>
+	<string>
+	<fstream>
+	"CommunicationNetwork.h"
+
+1424122015 /home/user/Dropbox/2270/Assignment4/CommunicationNetwork.h
+	<string>
+
+1424284956 source:/home/user/Dropbox/2270/Assignment4/CommunicationNetwork.cpp
+	"CommunicationNetwork.h"
+	<fstream>
+	<iostream>
+

@@ -1,0 +1,50 @@
+void Graph::colorVertices(string sourceVertex)
+{
+     queue <vertex*> Q;
+     vertex* s;
+     vertex* u;
+    for (int i=0; i<vertices.size();i++)
+    {
+        if (vertices[i].name== sourceVertex)
+        {
+            s = &vertices[i];
+            s->color = "Red";
+            s->visited = true;
+        }
+        else
+        {
+            vertices[i].visited= false;
+        }
+    }
+
+    Q.push(s);
+    while (!Q.empty())
+    {
+         u = Q.front();
+         Q.pop();
+
+        for (int i=0; i < u->adj.size();i++)
+        {
+
+            if (u->color == "Red" && u->adj[i].v->visited == false)
+            {
+                u->adj[i].v->color = "Black";
+                 u->adj[i].v->visited = true;
+                Q.push(u->adj[i].v);
+
+
+            }
+            else if (u->color == "Black" && u->adj[i].v->visited == false)
+            {
+                u->adj[i].v->color = "Red";
+                 u->adj[i].v->visited = true;
+                Q.push(u->adj[i].v);
+
+            }
+
+        }
+
+
+    }
+
+}

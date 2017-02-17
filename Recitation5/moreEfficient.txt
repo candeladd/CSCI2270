@@ -1,0 +1,22 @@
+
+
+ struct node
+{
+char data;
+node * next;
+node * prev;
+};
+
+bool isPalindrome(node *head, node *tail)
+{
+    while((head != tail) &&  (tail-> next != head))
+    {
+          if(head->data != tail->data)
+         {
+               return false;
+         }
+         head = head->next;
+         tail = tail->prev;
+    }
+return true;
+}

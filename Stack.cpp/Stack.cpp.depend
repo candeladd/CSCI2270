@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1423693146 source:/home/user/Dropbox/2270/Stack.cpp/Stack.cpp
+	<iostream>
+
+1423694882 source:/home/user/Dropbox/2270/Stack.cpp/StackMain.cpp
+	"Stack.h"
+	<iostream>
+
+1423694257 /home/user/Dropbox/2270/Stack.cpp/include/Stack.h
+	<iostream>
+

@@ -1,0 +1,17 @@
+void Queue::enqueue(node *newNode)
+{
+    if(head == NULL)
+    {
+        head=newNode;
+        tail=newNode;
+        head->next =NULL;
+        tail->next = NULL;
+    }
+    else if(tail->next==NULL)
+    {
+        tail->next = newNode;
+        tail=newNode;
+        newNode->next=NULL;
+        
+    }
+}

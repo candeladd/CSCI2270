@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1423088924 source:/home/user/Dropbox/2270/class/main.cpp
+	<iostream>
+
+1423088743 source:/home/user/Dropbox/2270/class/src/CNode.cpp
+	"CNode.h"
+	<iostream>
+
+1423088901 /home/user/Dropbox/2270/class/include/CNode.h
+

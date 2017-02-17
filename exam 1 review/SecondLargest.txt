@@ -1,0 +1,24 @@
+Write a C++ function to find second largest element in an array. The function takes two argument - the input array, size of the array. It should return the second largest element.
+
+
+int secondLargest(int arr[],int size);
+For example:
+Test					Result
+//int inputarray[] = {1, 2, 3, 4}	
+//length = 4				3
+
+-Answer-
+int secondLargest(int arr[],int size){
+ int secondLargest = 0;
+ int Largest= -10;
+    for (int i=0;i<size;i++){
+        if (arr[i]>Largest){
+        secondLargest = Largest;
+        Largest = arr[i];
+        }
+        else if(arr[i]>secondLargest){
+        secondLargest = arr[i];
+        }
+    }
+    return secondLargest;
+}

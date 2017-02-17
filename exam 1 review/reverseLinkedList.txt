@@ -1,0 +1,31 @@
+Write a C++ function to reverse a linked list. The function takes one argument - the head of the linked list. It should return the head of the reversed list.
+
+node * ReverseLinkedList(node *head);
+
+The linked list structure:
+struct node
+{
+    int value;
+    node *next;
+};
+
+For example:
+Test			Result
+//0 -> 0 -> 50 -> 100	100 -> 50 -> 0 -> 0 
+
+-Answer-
+node *ReverseLinkedList(node *head){
+    node* current = head;
+    node* previous = NULL;
+    node* next = current;
+    while(current!= NULL){
+    	next= current->next;
+    	current->next=previous;
+    	previous = current;
+   	current=next;
+    }
+    head= previous;
+  
+    return head;
+
+}
